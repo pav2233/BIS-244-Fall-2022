@@ -41,26 +41,26 @@ p + geom_bar(mapping = aes(y = ..prop.., group = 1))
 table(gss_sm$religion)
 
 # Use geom_bar() again, but specify x & color = religion in ggplot()
-
+#outline color
 p <- ggplot(data = gss_sm,
             mapping = aes(x = religion, color = religion))
 p + geom_bar()
 
 # Fill is "livelier" than color:
-
+#fills the bar with color
 p <- ggplot(data = gss_sm,
             mapping = aes(x = religion, fill = religion))
 p + geom_bar() 
 
 # But do we really need a legend in this case?
-
+#remove legend
 p + geom_bar() + guides(fill = FALSE)
 
 
 ## 4.5 Frequency Plots the Slightly Awkward Way
 
 # Let's specify x = bigregion, but fill=religion
-
+#stack colors with fill
 p <- ggplot(data = gss_sm,
             mapping = aes(x = bigregion, 
                           fill = religion))
@@ -78,7 +78,7 @@ p + geom_bar(position = "dodge",
              mapping = aes(y = ..prop..))      
 
 # Just as we did with "1-way" bar charts before, can use "group = "...
-
+#can group 
 p <- ggplot(data = gss_sm,
             mapping = aes(x = bigregion, 
                           fill = religion))
@@ -87,7 +87,7 @@ p + geom_bar(position = "dodge",
                            group = religion))       
 
 # At some point, we have to ask ourselves if there isn't maybe a less-cluttered way to do this:
-
+#put all the mini graphs in a column for us
 p <- ggplot(data = gss_sm,
             mapping = aes(x = religion))
 
@@ -141,7 +141,7 @@ p + geom_histogram(alpha = 0.4, bins = 20)
 # Question: are these "stacked" or behind one another?
 
 # Subsetting in the ggplot() command
-
+#population density curve 
 oh_wi <- c("OH", "WI")
 
 p <- ggplot(data = subset(midwest, subset = state %in% oh_wi),
@@ -159,7 +159,7 @@ p + geom_density()
 p + geom_histogram() + geom_density()
 
 # Can use fill and color in geom_density plots, as well
-
+#geom_density are cool AF
 p <- ggplot(data = midwest,
             mapping = aes(x = area, fill = state, color = state))
 p + geom_density(alpha = 0.3)
