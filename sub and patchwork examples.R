@@ -1,9 +1,10 @@
 library(tidyverse)
 AWI <- read_csv("AWI Changes.csv")
 str(AWI)
-
+View(AWI)
 # Substituting blanks for %
 AWI$"Growth_in_AWI" <- as.numeric(sub("%","",AWI$"Growth_in_AWI"))
+View(AWI)
 str(AWI)
 
 # Making graphs and using pathwork
